@@ -119,17 +119,17 @@ export const makeDnd = async ({
   };
   const handleMovementInDirection = async () => {
     // enable keyboard dragging
-    userEvent.keyboard(spaceKey);
+    await userEvent.keyboard(spaceKey);
     expect(
       await screen.findByText(/You have lifted an item/i)
     ).toBeInTheDocument();
     // move draggable based on direction
-    userEvent.keyboard(getKeyForDirection());
+    await userEvent.keyboard(getKeyForDirection());
     expect(
       await screen.findByText(/You have moved the item/i)
     ).toBeInTheDocument();
     // disable keyboard dragging
-    userEvent.keyboard(spaceKey);
+    await userEvent.keyboard(spaceKey);
     expect(
       await screen.findByText(/You have dropped the item/i)
     ).toBeInTheDocument();
